@@ -1,10 +1,7 @@
 package soap_carsshop_server.handler;
 
-import soap_carsshop_server.entity.Car;
-import soap_carsshop_server.entity.Client;
 import soap_carsshop_server.service.CarShopDAO;
 
-import javax.jws.WebMethod;
 import java.util.List;
 
 public class CarShopHandler {
