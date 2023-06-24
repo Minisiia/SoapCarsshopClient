@@ -14,8 +14,8 @@ public class Main{
         QName qName = new QName("http://service.soap_carsshop_server/", "CarShopDAOImplService");
         Service service = Service.create(url, qName);
         QName port = new QName("http://service.soap_carsshop_server/", "CarShopDAOImplPort");
-        CarShopDAO tv = service.getPort(port, CarShopDAO.class);
-        List<String> marks = tv.getAllMarks();
+        CarShopDAO carShopDAO = service.getPort(port, CarShopDAO.class);
+        List<String> marks = carShopDAO.getAllMarks();
         System.out.println("Марки автомобилей:");
         for (String mark : marks) {
             System.out.println(mark);
