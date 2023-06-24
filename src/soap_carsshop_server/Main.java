@@ -1,5 +1,6 @@
 package soap_carsshop_server;
 
+import soap_carsshop_server.handler.CarShopHandler;
 import soap_carsshop_server.service.CarShopDAO;
 
 import javax.xml.namespace.QName;
@@ -15,10 +16,13 @@ public class Main{
         Service service = Service.create(url, qName);
         QName port = new QName("http://service.soap_carsshop_server/", "CarShopDAOImplPort");
         CarShopDAO carShopDAO = service.getPort(port, CarShopDAO.class);
-        List<String> marks = carShopDAO.getAllMarks();
-        System.out.println("Марки автомобилей:");
-        for (String mark : marks) {
-            System.out.println(mark);
-        }
+        CarShopHandler.printAllCars(carShopDAO);
+        CarShopHandler.printCarById(carShopDAO,1);
+        CarShopHandler.printAllMarks(carShopDAO);
+        CarShopHandler.printMarkById(carShopDAO,1);
+        CarShopHandler.printAllClients(carShopDAO);
+        CarShopHandler.printClientById(carShopDAO,2);
+        CarShopHandler.printAllOrdersInfo(carShopDAO);
+
     }
 }
